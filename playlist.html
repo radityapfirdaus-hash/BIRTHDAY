@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#eee9df">
+    <title>07 — playlist</title>
+    <link rel="stylesheet" href="playlist.css">
+</head>
+
+<body>
+
+    <div class="grain"></div>
+    <div class="background-number">07</div>
+
+    <div class="floating-cat cat-one">ᓚᘏᗢ</div>
+    <div class="floating-cat cat-two">ᓚᘏᗢ</div>
+
+    <div class="opening" id="opening">
+        <p>ada beberapa lagu untukmu.</p>
+        <span>07 / 10</span>
+    </div>
+
+    <main class="playlist-page" id="playlistPage">
+
+        <div class="page-top">
+            <span>PLAYLIST</span>
+            <span>07 / 10</span>
+        </div>
+
+        <section class="playlist-card">
+
+            <div class="playlist-header">
+                <p class="small-title">UNTUK DIDENGARKAN</p>
+
+                <h1>
+                    beberapa lagu<br>
+                    untukmu.
+                </h1>
+
+                <div class="title-line"></div>
+
+                <p class="playlist-intro">
+                    entah kenapa beberapa lagu
+                    terasa punya cara sendiri
+                    untuk mengingatkan kita
+                    pada seseorang.
+                </p>
+            </div>
+
+
+            <div class="song-list">
+
+                <!-- SONG 01 -->
+
+                <button
+                    class="song-item active"
+                    data-song="About You.mp3"
+                    data-title="About You"
+                    data-artist="The 1975"
+                >
+
+                    <span class="song-number">01</span>
+
+                    <span class="song-info">
+                        <span class="song-title">About You</span>
+                        <span class="song-artist">The 1975</span>
+                    </span>
+
+                    <span class="song-play">▶</span>
+
+                </button>
+
+
+                <!-- SONG 02 -->
+
+                <button
+                    class="song-item"
+                    data-song="WIWYM.mp3"
+                    data-title="When I Was Your Man"
+                    data-artist="Bruno Mars"
+                >
+
+                    <span class="song-number">02</span>
+
+                    <span class="song-info">
+                        <span class="song-title">
+                            When I Was Your Man
+                        </span>
+
+                        <span class="song-artist">
+                            Bruno Mars
+                        </span>
+                    </span>
+
+                    <span class="song-play">▶</span>
+
+                </button>
+
+
+                <!-- SONG 03 -->
+
+                <button
+                    class="song-item"
+                    data-song="BKKASM.mp3"
+                    data-title="Berapa Kali Kita Akan Saling Memaafkan"
+                    data-artist="Pamungkas"
+                >
+
+                    <span class="song-number">03</span>
+
+                    <span class="song-info">
+                        <span class="song-title">
+                            Berapa Kali Kita Akan
+                            Saling Memaafkan
+                        </span>
+
+                        <span class="song-artist">
+                            Pamungkas
+                        </span>
+                    </span>
+
+                    <span class="song-play">▶</span>
+
+                </button>
+
+            </div>
+
+
+            <!-- CURRENT PLAYER -->
+
+            <div class="current-player" id="currentPlayer">
+
+                <div class="player-top">
+
+                    <div>
+                        <span class="player-label">
+                            NOW PLAYING
+                        </span>
+
+                        <p class="current-title" id="currentTitle">
+                            About You
+                        </p>
+
+                        <p class="current-artist" id="currentArtist">
+                            The 1975
+                        </p>
+                    </div>
+
+                    <button
+                        class="pause-button"
+                        id="pauseButton"
+                        aria-label="Play / Pause"
+                    >
+                        ❚❚
+                    </button>
+
+                </div>
+
+
+                <div class="progress-container">
+
+                    <span id="currentTime">
+                        00:00
+                    </span>
+
+                    <div
+                        class="progress-bar"
+                        id="progressBar"
+                    >
+                        <div
+                            class="progress-fill"
+                            id="progressFill"
+                        ></div>
+                    </div>
+
+                    <span id="duration">
+                        00:00
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- MORE -->
+
+            <div class="more-section">
+
+                <div class="more-line"></div>
+
+                <p class="more-label">
+                    MORE
+                </p>
+
+                <p class="more-text">
+                    masih ada beberapa lagu lain
+                    yang mungkin ingin kamu dengarkan.
+                </p>
+
+                <a
+                    href="https://open.spotify.com/playlist/26x1HCeUbxDxfhN6b598et?si=5kaplna8QvSaAK8IOdTZ5A&utm_source=copy-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="spotify-button"
+                >
+                    <span>buka playlist lengkap</span>
+                    <span class="arrow">→</span>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <div class="continue-area">
+
+            <p>
+                masih ada satu bagian terakhir.
+            </p>
+
+            <a
+                href="sorry.html"
+                class="continue-button"
+            >
+                <span>lanjut</span>
+                <span class="arrow">→</span>
+            </a>
+
+        </div>
+
+
+        <div class="page-bottom">
+            <span>HALAMAN KETUJUH</span>
+            <span>07 / 10</span>
+        </div>
+
+    </main>
+
+
+    <audio id="birthdaySong" loop>
+        <source src="About You.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <script src="playlist.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --paper: #f3eee4;
+    --paper-dark: #e9e1d4;
+    --ink: #24221f;
+    --muted: #777168;
+    --line: #cfc5b5;
+    --accent: #8a7964;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   OPENING
+========================= */
+
+.opening {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.opening.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.opening-number {
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+.opening-text {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(32px, 8vw, 58px);
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.sorry-page {
+    min-height: 100vh;
+    opacity: 0;
+    transform: translateY(15px);
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+.sorry-page.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+    width: min(1100px, calc(100% - 40px));
+    margin: auto;
+    padding: 28px 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+
+    border-bottom: 1px solid var(--line);
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    width: min(1100px, calc(100% - 40px));
+    margin: auto;
+    padding: 110px 0 90px;
+}
+
+.eyebrow {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 30px;
+}
+
+.intro h1 {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: clamp(38px, 7vw, 78px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    width: min(680px, calc(100% - 40px));
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.letter p {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(19px, 2.8vw, 24px);
+    line-height: 1.85;
+    margin-bottom: 38px;
+    color: #302d29;
+}
+
+.letter .emphasis {
+    font-size: clamp(35px, 7vw, 58px);
+    line-height: 1.2;
+    margin: 70px 0;
+    color: var(--ink);
+}
+
+.letter .emphasis.small {
+    font-size: clamp(25px, 4vw, 36px);
+    margin: 65px 0;
+}
+
+
+/* =========================
+   END NOTE
+========================= */
+
+.ending-note {
+    width: min(680px, calc(100% - 40px));
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 0 100px;
+}
+
+.ending-note .line {
+    width: 60px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 45px;
+}
+
+.ending-note p {
+    font-family: "Playfair Display", serif;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.ending-note span {
+    font-family: "Inter", sans-serif;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   CONTINUE
+========================= */
+
+.continue-area {
+    display: flex;
+    justify-content: center;
+
+    padding: 20px 20px 110px;
+
+    opacity: 0;
+    transform: translateY(15px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.continue-area.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.continue-button {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    text-decoration: none;
+    color: var(--ink);
+
+    border: 1px solid var(--ink);
+    padding: 16px 20px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.continue-button:hover {
+    background: var(--ink);
+    color: var(--paper);
+    transform: translateX(4px);
+}
+
+.arrow {
+    font-size: 18px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid var(--line);
+
+    width: min(1100px, calc(100% - 40px));
+    margin: auto;
+
+    padding: 25px 0 35px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+
+    text-align: center;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .topbar {
+        width: calc(100% - 30px);
+        padding: 22px 0;
+    }
+
+    .intro {
+        width: calc(100% - 30px);
+        padding: 80px 0 70px;
+    }
+
+    .letter {
+        width: calc(100% - 34px);
+    }
+
+    .letter p {
+        line-height: 1.75;
+        margin-bottom: 32px;
+    }
+
+    .letter .emphasis {
+        margin: 55px 0;
+    }
+
+    .ending-note {
+        width: calc(100% - 34px);
+        padding-bottom: 80px;
+    }
+
+    .continue-area {
+        padding-bottom: 90px;
+    }
+
+    .continue-button {
+        width: 170px;
+        justify-content: space-between;
+    }
+}

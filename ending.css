@@ -1,0 +1,715 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #6da9ff;
+    --blue-dark: #315bc7;
+    --purple: #9c7cff;
+    --pink: #ff8fc7;
+    --white: #ffffff;
+    --black: #17152a;
+    --yellow: #ffe66d;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 20%, #ffffff 0 7%, transparent 8%),
+        radial-gradient(circle at 85% 15%, #ffffff 0 5%, transparent 6%),
+        linear-gradient(
+            135deg,
+            var(--blue),
+            #8bb8ff 25%,
+            var(--purple) 55%,
+            var(--pink)
+        );
+
+    color: var(--black);
+    font-family: "Inter", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   NOISE
+========================= */
+
+.noise {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20;
+
+    opacity: 0.08;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            #fff 3px
+        );
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.ending-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+    position: relative;
+    z-index: 5;
+
+    width: calc(100% - 36px);
+    max-width: 1100px;
+
+    margin: auto;
+    padding: 24px 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 0.15em;
+
+    border-bottom: 2px solid rgba(255,255,255,0.7);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+
+    width: calc(100% - 36px);
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 100px 0 80px;
+
+    text-align: center;
+}
+
+.tiny {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 12vw, 130px);
+    line-height: 0.88;
+
+    font-weight: 900;
+
+    letter-spacing: -0.07em;
+
+    text-shadow:
+        5px 5px 0 rgba(255,255,255,0.8),
+        10px 10px 0 rgba(49,91,199,0.25);
+
+    transform: rotate(-1deg);
+}
+
+.subtitle {
+    margin-top: 38px;
+
+    font-size: 15px;
+    line-height: 1.6;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   STICKERS
+========================= */
+
+.sticker {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 3px solid var(--black);
+
+    font-weight: 900;
+
+    box-shadow: 6px 6px 0 var(--black);
+
+    animation: floatSticker 3s ease-in-out infinite;
+}
+
+.sticker-one {
+    width: 75px;
+    height: 75px;
+
+    top: 80px;
+    left: 4%;
+
+    background: var(--yellow);
+
+    font-size: 24px;
+
+    transform: rotate(-12deg);
+}
+
+.sticker-two {
+    width: 85px;
+    height: 85px;
+
+    right: 4%;
+    top: 40px;
+
+    background: var(--white);
+
+    border-radius: 50%;
+
+    font-size: 28px;
+
+    transform: rotate(10deg);
+
+    animation-delay: 0.5s;
+}
+
+.sticker-three {
+    width: 60px;
+    height: 60px;
+
+    left: 12%;
+    bottom: 30px;
+
+    background: var(--pink);
+
+    font-size: 28px;
+
+    transform: rotate(15deg);
+
+    animation-delay: 1s;
+}
+
+@keyframes floatSticker {
+
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -12px;
+    }
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.main-card {
+    position: relative;
+    z-index: 5;
+
+    width: min(540px, calc(100% - 36px));
+
+    margin: 0 auto;
+
+    background: rgba(255,255,255,0.92);
+
+    border: 4px solid var(--black);
+
+    box-shadow:
+        12px 12px 0 var(--black),
+        20px 20px 0 rgba(255,255,255,0.5);
+
+    transform: rotate(1deg);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 13px 17px;
+
+    background: var(--blue-dark);
+
+    color: white;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+
+    border-bottom: 4px solid var(--black);
+}
+
+.card-content {
+    padding: 42px 28px 35px;
+
+    text-align: center;
+}
+
+.question {
+    font-size: 18px;
+    line-height: 1.6;
+
+    font-weight: 600;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   WHATSAPP BUTTON
+========================= */
+
+.wa-button {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 20px;
+
+    background: #7ee8a7;
+
+    border: 3px solid var(--black);
+
+    color: var(--black);
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    box-shadow: 5px 5px 0 var(--black);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.wa-button:hover {
+    transform: translate(3px, 3px);
+
+    box-shadow:
+        2px 2px 0 var(--black);
+}
+
+.wa-button:active {
+    transform: translate(5px, 5px);
+
+    box-shadow: none;
+}
+
+
+/* =========================
+   ESCAPE BUTTON
+========================= */
+
+.escape-button {
+    margin-top: 24px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #555;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.escape-button:hover {
+    color: var(--black);
+}
+
+.escape-button.shrink {
+    transform: scale(0.72);
+}
+
+
+/* =========================
+   WARNING
+========================= */
+
+.warning {
+    min-height: 35px;
+
+    margin-top: 25px;
+
+    font-size: 20px;
+    font-weight: 900;
+
+    color: #e53977;
+
+    transform: rotate(-2deg);
+}
+
+
+/* =========================
+   RANDOM AREA
+========================= */
+
+.random-zone {
+    position: relative;
+
+    height: 400px;
+
+    margin-top: 50px;
+
+    overflow: hidden;
+}
+
+.floating-word {
+    position: absolute;
+
+    font-size: clamp(30px, 8vw, 80px);
+
+    font-weight: 900;
+
+    opacity: 0.8;
+
+    user-select: none;
+
+    animation: drift 5s ease-in-out infinite;
+}
+
+.word-one {
+    left: 4%;
+    top: 30px;
+
+    color: white;
+
+    transform: rotate(-10deg);
+}
+
+.word-two {
+    right: 5%;
+    top: 90px;
+
+    color: var(--yellow);
+
+    transform: rotate(8deg);
+
+    animation-delay: 1s;
+}
+
+.word-three {
+    left: 25%;
+    top: 210px;
+
+    color: var(--pink);
+
+    transform: rotate(5deg);
+
+    animation-delay: 0.5s;
+}
+
+.word-four {
+    right: 20%;
+    top: 270px;
+
+    color: white;
+
+    transform: rotate(-7deg);
+
+    animation-delay: 1.5s;
+}
+
+.word-five {
+    left: 60%;
+    top: 30px;
+
+    color: var(--blue-dark);
+
+    transform: rotate(12deg);
+
+    animation-delay: 2s;
+}
+
+@keyframes drift {
+
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 15px -20px;
+    }
+}
+
+
+/* =========================
+   BUBBLES
+========================= */
+
+.bubble {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 4px solid var(--black);
+
+    animation: bubbleFloat 4s ease-in-out infinite;
+}
+
+.bubble-one {
+    width: 100px;
+    height: 100px;
+
+    left: 8%;
+    bottom: 20px;
+
+    background: var(--purple);
+}
+
+.bubble-two {
+    width: 55px;
+    height: 55px;
+
+    right: 10%;
+    top: 40px;
+
+    background: var(--pink);
+
+    animation-delay: 1s;
+}
+
+.bubble-three {
+    width: 35px;
+    height: 35px;
+
+    right: 35%;
+    bottom: 30px;
+
+    background: var(--yellow);
+
+    animation-delay: 2s;
+}
+
+@keyframes bubbleFloat {
+
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -25px;
+    }
+}
+
+
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+.final-message {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 50;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--purple),
+            var(--pink)
+        );
+
+    animation: finalAppear 0.6s ease;
+}
+
+.final-message.show {
+    display: flex;
+}
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+        scale: 0.9;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.final-box {
+    width: min(480px, 100%);
+
+    padding: 45px 30px;
+
+    background: white;
+
+    border: 4px solid var(--black);
+
+    box-shadow: 12px 12px 0 var(--black);
+
+    text-align: center;
+}
+
+.final-small {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+
+    letter-spacing: 0.2em;
+
+    margin-bottom: 20px;
+}
+
+.final-box h2 {
+    font-size: clamp(35px, 9vw, 65px);
+
+    line-height: 0.95;
+
+    font-weight: 900;
+
+    margin-bottom: 25px;
+}
+
+.final-box p {
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 30px;
+}
+
+#finishButton {
+    padding: 15px 30px;
+
+    background: var(--yellow);
+
+    border: 3px solid var(--black);
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow: 5px 5px 0 var(--black);
+}
+
+#finishButton:active {
+    transform: translate(5px, 5px);
+    box-shadow: none;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    position: relative;
+    z-index: 5;
+
+    padding: 25px 20px 35px;
+
+    text-align: center;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.15em;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding-top: 80px;
+    }
+
+    .hero h1 {
+        font-size: clamp(46px, 14vw, 80px);
+    }
+
+    .sticker-one {
+        left: 0;
+        top: 50px;
+
+        width: 55px;
+        height: 55px;
+    }
+
+    .sticker-two {
+        right: 0;
+        top: 25px;
+
+        width: 65px;
+        height: 65px;
+    }
+
+    .sticker-three {
+        display: none;
+    }
+
+    .main-card {
+        box-shadow:
+            8px 8px 0 var(--black);
+    }
+
+    .card-content {
+        padding: 32px 20px;
+    }
+
+    .random-zone {
+        height: 320px;
+    }
+
+    .floating-word {
+        font-size: 40px;
+    }
+}

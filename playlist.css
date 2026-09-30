@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #eee9df;
+    color: #292724;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* GRAIN */
+
+.grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.08;
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+}
+
+
+/* BACKGROUND */
+
+.background-number {
+    position: fixed;
+    right: -25px;
+    bottom: -100px;
+    font-family: "Playfair Display", serif;
+    font-size: 42vw;
+    line-height: 1;
+    color: rgba(70, 65, 58, 0.035);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floating-cat {
+    position: fixed;
+    font-size: 26px;
+    color: rgba(55, 50, 44, 0.18);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cat-one {
+    top: 13%;
+    left: 5%;
+    transform: rotate(-8deg);
+}
+
+.cat-two {
+    right: 6%;
+    top: 67%;
+    transform: rotate(7deg);
+}
+
+
+/* OPENING */
+
+.opening {
+    position: fixed;
+    inset: 0;
+    background: #eee9df;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+.opening.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.opening p {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 25px;
+    margin-bottom: 14px;
+}
+
+.opening span {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    opacity: 0.5;
+}
+
+
+/* PAGE */
+
+.playlist-page {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    padding: 35px 25px 50px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.playlist-page.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* TOP */
+
+.page-top,
+.page-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    opacity: 0.5;
+}
+
+.page-top {
+    margin-bottom: 25px;
+}
+
+
+/* CARD */
+
+.playlist-card {
+    background: #f7f3eb;
+    padding: 55px 55px 50px;
+    box-shadow:
+        0 20px 50px rgba(50, 45, 38, 0.08),
+        0 2px 5px rgba(50, 45, 38, 0.05);
+    position: relative;
+}
+
+.playlist-card::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(70, 65, 58, 0.07);
+    pointer-events: none;
+}
+
+
+/* HEADER */
+
+.playlist-header {
+    position: relative;
+    z-index: 2;
+}
+
+.small-title {
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    opacity: 0.55;
+    margin-bottom: 17px;
+}
+
+.playlist-header h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(38px, 6vw, 62px);
+    font-weight: 400;
+    line-height: 1.05;
+}
+
+.title-line {
+    width: 50px;
+    height: 1px;
+    background: #292724;
+    opacity: 0.35;
+    margin: 25px 0;
+}
+
+.playlist-intro {
+    max-width: 450px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #625d56;
+}
+
+
+/* SONG LIST */
+
+.song-list {
+    margin-top: 45px;
+    border-top: 1px solid rgba(60, 55, 48, 0.16);
+}
+
+.song-item {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 45px 1fr 45px;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 5px;
+    background: transparent;
+    color: #292724;
+    text-align: left;
+    border-bottom: 1px solid rgba(60, 55, 48, 0.12);
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        padding 0.25s ease;
+}
+
+.song-item:hover {
+    background: rgba(50, 45, 38, 0.035);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.song-item.active {
+    background: rgba(50, 45, 38, 0.045);
+}
+
+.song-number {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    opacity: 0.45;
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.song-title {
+    font-family: "Playfair Display", serif;
+    font-size: 17px;
+    line-height: 1.3;
+}
+
+.song-artist {
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.8px;
+    opacity: 0.55;
+}
+
+.song-play {
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(50, 45, 38, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    padding-left: 2px;
+    transition: 0.25s ease;
+}
+
+.song-item.active .song-play {
+    background: #292724;
+    color: #f7f3eb;
+}
+
+
+/* PLAYER */
+
+.current-player {
+    margin-top: 35px;
+    padding: 22px;
+    background: #e8e2d8;
+}
+
+.player-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player-label {
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    opacity: 0.5;
+}
+
+.current-title {
+    font-family: "Playfair Display", serif;
+    font-size: 19px;
+    margin-top: 8px;
+}
+
+.current-artist {
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    opacity: 0.55;
+    margin-top: 4px;
+}
+
+.pause-button {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(50, 45, 38, 0.3);
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.progress-container {
+    display: grid;
+    grid-template-columns: 35px 1fr 35px;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.progress-container span {
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    opacity: 0.5;
+}
+
+.progress-bar {
+    height: 2px;
+    background: rgba(50, 45, 38, 0.18);
+    cursor: pointer;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #292724;
+}
+
+
+/* MORE */
+
+.more-section {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.more-line {
+    width: 35px;
+    height: 1px;
+    background: #292724;
+    opacity: 0.25;
+    margin: 0 auto 25px;
+}
+
+.more-label {
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    opacity: 0.5;
+}
+
+.more-text {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 390px;
+    margin: 12px auto 25px;
+}
+
+.spotify-button,
+.continue-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid rgba(50, 45, 38, 0.3);
+    padding: 13px 18px;
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.8px;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.spotify-button:hover,
+.continue-button:hover {
+    background: #292724;
+    color: #f7f3eb;
+}
+
+.arrow {
+    font-size: 14px;
+}
+
+
+/* CONTINUE */
+
+.continue-area {
+    text-align: center;
+    padding: 45px 0;
+}
+
+.continue-area p {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+
+/* BOTTOM */
+
+.page-bottom {
+    padding-top: 10px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .playlist-page {
+        padding: 25px 15px 35px;
+    }
+
+    .playlist-card {
+        padding: 40px 25px 35px;
+    }
+
+    .playlist-card::before {
+        inset: 8px;
+    }
+
+    .playlist-header h1 {
+        font-size: 40px;
+    }
+
+    .playlist-intro {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .song-item {
+        grid-template-columns: 30px 1fr 38px;
+        gap: 10px;
+        padding: 18px 2px;
+    }
+
+    .song-title {
+        font-size: 15px;
+    }
+
+    .song-play {
+        width: 31px;
+        height: 31px;
+    }
+
+    .current-player {
+        padding: 18px;
+    }
+
+    .background-number {
+        font-size: 65vw;
+    }
+
+}

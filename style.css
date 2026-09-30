@@ -1,0 +1,933 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #eee9df;
+    color: #272522;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+
+    --paper: #eee9df;
+
+    --paper-light: #f6f2ea;
+
+    --paper-dark: #ded6c8;
+
+    --ink: #272522;
+
+    --muted: #817b72;
+
+    --faint: #aaa398;
+
+    --accent: #8b6f52;
+
+    --line: rgba(39, 37, 34, 0.16);
+
+}
+
+
+/* =========================================
+   PAPER GRAIN
+========================================= */
+
+.grain {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    opacity: 0.15;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+
+}
+
+
+/* =========================================
+   HUGE BACKGROUND 18
+========================================= */
+
+.background-number {
+
+    position: fixed;
+
+    right: -40px;
+    bottom: -80px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(260px, 48vw, 720px);
+
+    line-height: 0.7;
+
+    color: rgba(39, 37, 34, 0.035);
+
+    user-select: none;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+}
+
+
+/* =========================================
+   FLOATING CATS
+========================================= */
+
+.floating-cat {
+
+    position: fixed;
+
+    color: var(--accent);
+
+    opacity: 0.25;
+
+    font-family: serif;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+.cat-one {
+
+    top: 15%;
+
+    left: 5%;
+
+    font-size: 27px;
+
+    transform:
+        rotate(-8deg);
+
+}
+
+.cat-two {
+
+    right: 7%;
+
+    bottom: 17%;
+
+    font-size: 21px;
+
+    transform:
+        rotate(10deg);
+
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.countdown-page {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    padding:
+        30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.countdown-card {
+
+    width: min(
+        760px,
+        100%
+    );
+
+    min-height: 680px;
+
+    padding:
+        28px
+        34px;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    background:
+        rgba(246, 242, 234, 0.72);
+
+    border:
+        1px solid
+        var(--line);
+
+    box-shadow:
+        18px 20px 0
+        rgba(39, 37, 34, 0.045);
+
+    backdrop-filter:
+        blur(4px);
+
+}
+
+
+/* =========================================
+   CARD CORNER DETAILS
+========================================= */
+
+.countdown-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    border:
+        1px solid
+        rgba(39, 37, 34, 0.055);
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   TOP LINE
+========================================= */
+
+.top-line {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 17px;
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+}
+
+
+.edition,
+.date-small {
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing:
+        0.16em;
+
+    color:
+        var(--muted);
+
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.main-content {
+
+    width: 100%;
+
+    max-width: 620px;
+
+    margin:
+        0 auto;
+
+    text-align: center;
+
+    padding:
+        55px 10px
+        40px;
+
+}
+
+
+.tiny-cat {
+
+    font-size: 27px;
+
+    color:
+        var(--accent);
+
+    margin-bottom:
+        25px;
+
+    opacity: 0.8;
+
+}
+
+
+.pre-title {
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+
+    letter-spacing:
+        0.3em;
+
+    color:
+        var(--muted);
+
+    margin-bottom:
+        11px;
+
+}
+
+
+h1 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            52px,
+            10vw,
+            86px
+        );
+
+    font-weight:
+        400;
+
+    line-height:
+        0.95;
+
+    letter-spacing:
+        -0.045em;
+
+}
+
+
+.title-line {
+
+    width: 50px;
+
+    height: 1px;
+
+    background:
+        var(--accent);
+
+    margin:
+        25px auto;
+
+}
+
+
+.intro-text {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.7;
+
+    font-style:
+        italic;
+
+    color:
+        var(--muted);
+
+}
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown {
+
+    width: 100%;
+
+    margin:
+        52px auto
+        30px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto
+        1fr
+        auto
+        1fr
+        auto
+        1fr;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+
+.time-box {
+
+    min-width:
+        70px;
+
+}
+
+
+.time-number {
+
+    display: block;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        clamp(
+            27px,
+            6vw,
+            45px
+        );
+
+    line-height:
+        1;
+
+    font-weight:
+        400;
+
+    letter-spacing:
+        -0.05em;
+
+    transition:
+        transform
+        0.2s ease;
+
+}
+
+
+.time-label {
+
+    display: block;
+
+    margin-top:
+        9px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    text-transform:
+        uppercase;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        0.12em;
+
+    color:
+        var(--muted);
+
+}
+
+
+.separator {
+
+    font-family:
+        Georgia,
+        serif;
+
+    color:
+        var(--faint);
+
+    font-size:
+        23px;
+
+    padding:
+        0 5px;
+
+    transform:
+        translateY(-7px);
+
+}
+
+
+/* =========================================
+   BIRTHDAY DATE
+========================================= */
+
+.birthday-date {
+
+    display: flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        12px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        0.16em;
+
+    color:
+        var(--muted);
+
+}
+
+
+.date-line {
+
+    width:
+        28px;
+
+    height:
+        1px;
+
+    background:
+        var(--line);
+
+}
+
+
+/* =========================================
+   ENTER BUTTON
+========================================= */
+
+.enter-area {
+
+    margin-top:
+        36px;
+
+}
+
+
+.enter-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    padding: 16px 22px;
+
+    background: #2b2926;
+    color: #f3eee4;
+
+    border: 1px solid #2b2926;
+
+    text-decoration: none;
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.enter-button:hover {
+    background: transparent;
+    color: #2b2926;
+    transform: translateX(4px);
+}
+
+
+.enter-button .arrow {
+
+    transition:
+        transform
+        0.25s
+        ease;
+
+}
+
+
+.enter-button:hover .arrow {
+
+    transform:
+        translateX(4px);
+
+}
+
+
+/* =========================================
+   BOTTOM LINE
+========================================= */
+
+.bottom-line {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    padding-top:
+        17px;
+
+    border-top:
+        1px solid
+        var(--line);
+
+}
+
+
+.bottom-line span {
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        0.12em;
+
+    color:
+        var(--muted);
+
+}
+
+
+/* =========================================
+   BOTTOM MESSAGE
+========================================= */
+
+.bottom-message {
+
+    position:
+        absolute;
+
+    bottom:
+        12px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        0.08em;
+
+    color:
+        var(--muted);
+
+    white-space:
+        nowrap;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .countdown-page {
+
+        padding:
+            15px;
+
+    }
+
+
+    .countdown-card {
+
+        min-height:
+            650px;
+
+        padding:
+            22px 19px;
+
+    }
+
+
+    .countdown-card::before {
+
+        top:
+            7px;
+
+        left:
+            7px;
+
+        right:
+            7px;
+
+        bottom:
+            7px;
+
+    }
+
+
+    .main-content {
+
+        padding:
+            45px 4px
+            30px;
+
+    }
+
+
+    h1 {
+
+        font-size:
+            clamp(
+                47px,
+                14vw,
+                70px
+            );
+
+    }
+
+
+    .countdown {
+
+        margin-top:
+            45px;
+
+    }
+
+
+    .time-box {
+
+        min-width:
+            54px;
+
+    }
+
+
+    .time-number {
+
+        font-size:
+            25px;
+
+    }
+
+
+    .time-label {
+
+        font-size:
+            7px;
+
+    }
+
+
+    .separator {
+
+        font-size:
+            18px;
+
+        padding:
+            0 1px;
+
+    }
+
+
+    .birthday-date {
+
+        font-size:
+            7px;
+
+        gap:
+            7px;
+
+    }
+
+
+    .date-line {
+
+        width:
+            17px;
+
+    }
+
+
+    .bottom-line span:first-child {
+
+        max-width:
+            170px;
+
+    }
+
+
+    .background-number {
+
+        right:
+            -20px;
+
+        bottom:
+            -20px;
+
+        font-size:
+            310px;
+
+    }
+
+
+    .floating-cat {
+
+        opacity:
+            0.17;
+
+    }
+
+}
+
+
+@media (max-width: 380px) {
+
+    .countdown-card {
+
+        min-height:
+            620px;
+
+    }
+
+
+    .countdown {
+
+        grid-template-columns:
+            repeat(7, auto);
+
+    }
+
+
+    .time-box {
+
+        min-width:
+            48px;
+
+    }
+
+
+    .time-number {
+
+        font-size:
+            21px;
+
+    }
+
+
+    .separator {
+
+        font-size:
+            15px;
+
+    }
+
+
+    .intro-text {
+
+        font-size:
+            13px;
+
+    }
+
+}
+
+.enter-button.locked {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: auto;
+}
+
+.enter-button.ready {
+    opacity: 1;
+    cursor: pointer;
+}

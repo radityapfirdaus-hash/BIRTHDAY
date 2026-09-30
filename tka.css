@@ -1,0 +1,471 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --paper: #f3eee4;
+    --paper-dark: #e9e1d4;
+    --ink: #22201d;
+    --muted: #777168;
+    --line: #cfc5b5;
+    --accent: #8a7964;
+}
+
+
+body {
+    min-height: 100vh;
+    background: var(--paper);
+    color: var(--ink);
+
+    font-family: "Inter", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   OPENING
+========================= */
+
+.opening {
+    position: fixed;
+    inset: 0;
+
+    background: var(--paper);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 100;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+
+.opening.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.opening-inner {
+    text-align: center;
+}
+
+
+.opening-inner span {
+    display: block;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+
+    letter-spacing: 0.25em;
+
+    color: var(--muted);
+
+    margin-bottom: 14px;
+}
+
+
+.opening-inner p {
+    font-family: "Playfair Display", serif;
+
+    font-size: 24px;
+
+    letter-spacing: 0.02em;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.tka-page {
+    width: min(900px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 34px 0 30px;
+
+    opacity: 0;
+    transform: translateY(15px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.tka-page.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.page-header {
+    margin-bottom: 75px;
+}
+
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 0.18em;
+
+    color: var(--muted);
+}
+
+
+.header-line {
+    width: 100%;
+    height: 1px;
+
+    background: var(--line);
+
+    margin-top: 14px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    margin-bottom: 70px;
+}
+
+
+.eyebrow {
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 0.25em;
+
+    color: var(--accent);
+
+    margin-bottom: 22px;
+}
+
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+
+    font-weight: 400;
+
+    font-size: clamp(36px, 6vw, 66px);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.025em;
+}
+
+
+/* =========================
+   DOCUMENTS
+========================= */
+
+.documents {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+.document-card {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 70px 1fr;
+
+    min-height: 235px;
+
+    padding: 30px;
+
+    border: 1px solid var(--line);
+
+    background: rgba(255, 255, 255, 0.12);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.document-card:hover {
+    background: rgba(255, 255, 255, 0.28);
+
+    transform: translateY(-2px);
+}
+
+
+.document-number {
+    font-family: "DM Mono", monospace;
+
+    font-size: 12px;
+
+    color: var(--muted);
+
+    letter-spacing: 0.1em;
+}
+
+
+.document-content {
+    max-width: 600px;
+}
+
+
+.document-label {
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.2em;
+
+    color: var(--accent);
+
+    margin-bottom: 12px;
+}
+
+
+.document-content h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(27px, 4vw, 42px);
+
+    font-weight: 500;
+
+    line-height: 1.08;
+
+    letter-spacing: -0.02em;
+
+    margin-bottom: 15px;
+}
+
+
+.document-description {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    max-width: 450px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.document-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+
+    padding: 11px 16px;
+
+    border: 1px solid var(--ink);
+
+    color: var(--ink);
+
+    text-decoration: none;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 0.12em;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.document-button:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+
+/* =========================
+   BOTTOM
+========================= */
+
+.bottom-section {
+    margin-top: 75px;
+
+    text-align: center;
+}
+
+
+.bottom-line {
+    width: 100%;
+    height: 1px;
+
+    background: var(--line);
+
+    margin-bottom: 30px;
+}
+
+
+.bottom-section p {
+    font-family: "Playfair Display", serif;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: var(--muted);
+
+    margin-bottom: 30px;
+}
+
+
+.continue-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    padding: 14px 20px;
+
+    color: var(--ink);
+
+    border: 1px solid var(--ink);
+
+    text-decoration: none;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 0.14em;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.continue-button:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.page-footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 80px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--line);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.18em;
+
+    color: var(--muted);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .tka-page {
+        width: calc(100% - 28px);
+
+        padding-top: 24px;
+    }
+
+
+    .page-header {
+        margin-bottom: 55px;
+    }
+
+
+    .hero {
+        margin-bottom: 50px;
+    }
+
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+
+    .document-card {
+        grid-template-columns: 42px 1fr;
+
+        padding: 22px;
+
+        min-height: 220px;
+    }
+
+
+    .document-number {
+        font-size: 10px;
+    }
+
+
+    .document-content h2 {
+        font-size: 28px;
+    }
+
+
+    .document-description {
+        font-size: 12px;
+    }
+
+
+    .bottom-section {
+        margin-top: 60px;
+    }
+
+
+    .bottom-section p {
+        font-size: 16px;
+    }
+
+
+    .page-footer {
+        margin-top: 60px;
+    }
+
+}
